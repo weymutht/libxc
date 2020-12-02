@@ -51,7 +51,7 @@ b_beta := 163.44:
 b_A := 3.2581:
 g0 := (rs) -> b_D*((b_gamma + rs)^(3/2) + b_beta)*exp(-b_A*sqrt(b_gamma + rs)):
 d2erf := (rs, z, xt, xs0, xs1) -> 2*f_pbe(rs, z, xt, xs0, xs1)/(Pi*n(rs)*(g0(rs) - 1/2)):
-d1erf := (rs, z, xt, xs0, xs1) -> -2*d2erf(rs, z, xt, xs0, xs1)^2*sqrt(Pi)*n(rs)*g0(rs)/(3*f_pbe(rs, z, xt, xs0, xs1)):
+d1erf := (rs, z, xt, xs0, xs1) -> -sqrt(2)*2*d2erf(rs, z, xt, xs0, xs1)^2*sqrt(Pi)*n(rs)*g0(rs)/(3*f_pbe(rs, z, xt, xs0, xs1)):
 
 f  := (rs, z, xt, xs0, xs1) -> f_pbe(rs, z, xt, xs0, xs1)/(1 + d1erf(rs, z, xt, xs0, xs1)*mu + d2erf(rs, z, xt, xs0, xs1)*mu^2):
 
