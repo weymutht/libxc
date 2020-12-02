@@ -6,9 +6,9 @@ set -e
 module load maple/2018.1
 module load perl/5.30.2
 cd maple/gga_exc
-#../../scripts/maple2c.pl ../.. gga_c_pbehseri 4   # Takes about 44 minutes on tc-ws-006
+../../scripts/maple2c.pl ../.. gga_c_pbehseri 4   # Takes about 44 minutes on tc-ws-006
 #../../scripts/maple2c.pl ../.. lda_c_pmgb06 4
-../../scripts/maple2c.pl ../.. lda_x_erf 4
+#../../scripts/maple2c.pl ../.. lda_x_erf 4
 cd ../..
 
 # Create C code for references
