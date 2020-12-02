@@ -24,7 +24,7 @@ xc_lda_x_erf_init(xc_func_type *p)
 
 static const char  *omega_names[]  = {"_omega"};
 static const char  *omega_desc[]   = {"screening parameter"};
-static const double omega_values[] = {0.3};
+static const double omega_values[] = {0.4};
 
 #ifdef __cplusplus
 extern "C"

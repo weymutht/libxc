@@ -20,7 +20,7 @@ xc_lda_x_pmgb06_init(xc_func_type *p)
 
 static const char  *omega_names[]  = {"_omega"};
 static const char  *omega_desc[]   = {"screening parameter"};
-static const double omega_values[] = {0.3};
+static const double omega_values[] = {0.4};
 
 #include "maple2c/lda_exc/lda_c_pmgb06.c"
 #include "work_lda.c"

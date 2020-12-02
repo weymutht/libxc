@@ -167,6 +167,7 @@ set(raw_sources_list
   gga_c_p86.c
   gga_c_p86vwn.c
   gga_c_pbe.c
+  gga_c_pbehseri.c
   gga_c_pbe_vwn.c
   gga_c_pbeloc.c
   gga_c_pbe_erf_gws.c

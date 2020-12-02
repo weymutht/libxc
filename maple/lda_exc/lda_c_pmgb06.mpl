@@ -110,4 +110,4 @@ pmgb_ec_LR := (rs, z) -> (
            + pmgb_a5(rs, z)*p_a_hyb_omega_0_^8
            )/(1 + pmgb_b0(rs)^2*p_a_hyb_omega_0_^2)^4:
 
-f := (rs, z) -> pmgb_ec_LR(rs, z):
+f := (rs, z) -> f_pw(rs, z) - pmgb_ec_LR(rs, z):

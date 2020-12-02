@@ -3023,3 +3023,17 @@ func_reference_type xc_ref_vonBarth1972_1629 = {
   "vonBarth1972_1629"
 };
 
+func_reference_type xc_ref_Toulouse2004_062505 = {
+  "J. Toulouse, F. Colonna, and A. Savin, Phys. Rev. A 70, 062505 (2004)",
+  "10.1103/PhysRevA.70.062505",
+  "@article{Toulouse2004_062505,\n  title = {Long-range--short-range separation of the electron-electron interactionin density-functional theory},\n  author = {J. Toulouse and F. Colonna and A. Savin},\n  journal = {Phys. Rev. A},\n  volume = {70},\n  number = {6},\n  pages = {062505},\n  year = {2004},\n  doi = {10.1103/PhysRevA.70.062505},\n  url = {https://journals.aps.org/pra/abstract/10.1103/PhysRevA.70.062505}\n}"
+};
+
+
+func_reference_type xc_ref_Fromager2007_074111 = {
+  "E. Fromager, J. Toulouse, and H. J. A. Jensen, J. Chem. Phys. 126, 074111 (2007)",
+  "10.1063/1.2566459",
+  "@article{Fromager2007_074111,\n  title = {On the universality of the long-/short-range separation in multiconfigurational density-functional theory},\n  author = {E. Fromager and J. Toulouse and H. J. Aa. Jensen},\n  journal = {J. Chem. Phys.},\n  volume = {126},\n  number = {7},\n  pages = {074111},\n  year = {2007},\n  doi = {10.1063/1.2566459},\n  url = {https://aip.scitation.org/doi/10.1063/1.2566459}\n}"
+};
+
+
