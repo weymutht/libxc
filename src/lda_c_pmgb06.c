@@ -12,7 +12,7 @@
 
 static const char  *omega_names[]  = {"omega"};
 static const char  *omega_desc[]   = {"screening parameter"};
-static const double omega_values[] = {0.3};
+static const double omega_values[] = {0.4};
 
 #include "decl_lda.h"
 #include "maple2c/lda_exc/lda_c_pmgb06.c"

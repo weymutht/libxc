@@ -143,6 +143,7 @@ set(raw_sources_list
   gga_c_optc.c
   gga_c_p86.c
   gga_c_pbe.c
+  gga_c_pbehseri.c
   gga_c_pbe_vwn.c
   gga_c_pbeloc.c
   gga_c_pw91.c

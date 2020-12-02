@@ -973,7 +973,7 @@ func_reference_type xc_ref_Iikura2001_3540 = {
 
 
 func_reference_type xc_ref_Jana2017_4804 = {
-  "S. Jana and P. Samal, J. Phys. Chem. A 121, 4804 (2017)",
+  "S. Jana and P. Samal, J. Phys. Chem A 121, 4804 (2017)",
   "10.1021/acs.jpca.7b03686",
   "@article{Jana2017_4804,\nauthor = {Jana, Subrata and Samal, Prasanjit},\ntitle = {Semilocal Exchange Energy Functional for Two-Dimensional Quantum Systems: A Step Beyond Generalized Gradient Approximations},\njournal = {The Journal of Physical Chemistry A},\nvolume = {121},\nnumber = {25},\npages = {4804-4811},\nyear = {2017},\ndoi = {10.1021/acs.jpca.7b03686},\nURL = {https://doi.org/10.1021/acs.jpca.7b03686},\n}"
 };
@@ -987,7 +987,7 @@ func_reference_type xc_ref_Jana2018_8999 = {
 
 
 func_reference_type xc_ref_Jana2019_6356 = {
-  "S. Jana, K. Sharma, and P. Samal, J. Phys. Chem. A 123, 6356 (2019), pMID: 31241950",
+  "S. Jana, K. Sharma, and P. Samal, J. Phys. Chem A 123, 6356 (2019), pMID: 31241950",
   "10.1021/acs.jpca.9b02921",
   "@article{Jana2019_6356,\n author = {Jana, Subrata and Sharma, Kedar and Samal, Prasanjit},\n title = {Improving the Performance of Tao--Mo Non-empirical Density Functional with Broader Applicability in Quantum Chemistry and Materials Science},\n journal = {The Journal of Physical Chemistry A},\n volume = {123},\n number = {29},\n pages = {6356-6369},\n year = {2019},\n doi = {10.1021/acs.jpca.9b02921},\n note ={PMID: 31241950},\n URL = {https://doi.org/10.1021/acs.jpca.9b02921}\n}"
 };
@@ -1386,7 +1386,7 @@ func_reference_type xc_ref_Mortensen2005_216401 = {
 
 
 func_reference_type xc_ref_Mosquera2016_1605 = {
-  "M. A. Mosquera, C. H. Borca, M. A. Ratner, and G. C. Schatz, J. Phys. Chem. A 120, 1605 (2016), pMID: 26901359",
+  "M. A. Mosquera, C. H. Borca, M. A. Ratner, and G. C. Schatz, J. Phys. Chem A 120, 1605 (2016), pMID: 26901359",
   "10.1021/acs.jpca.5b10864",
   "@article{Mosquera2016_1605,\n  author = {Mosquera, Martín A. and Borca, Carlos H. and Ratner, Mark A. and Schatz, George C.},\n  title = {Connection between Hybrid Functionals and Importance of the Local Density Approximation},\n  journal = {The Journal of Physical Chemistry A},\n  volume = {120},\n  number = {9},\n  pages = {1605-1612},\n  year = {2016},\n  doi = {10.1021/acs.jpca.5b10864},\n  note ={PMID: 26901359},\n  URL = {https://doi.org/10.1021/acs.jpca.5b10864}\n}"
 };
@@ -2226,7 +2226,7 @@ func_reference_type xc_ref_Verma2017_7144 = {
 
 
 func_reference_type xc_ref_Verma2019_2966 = {
-  "P. Verma, Y. Wang, S. Ghosh, X. He, and D. G. Truhlar, J. Phys. Chem. A 123, 2966 (2019), pMID: 30707029",
+  "P. Verma, Y. Wang, S. Ghosh, X. He, and D. G. Truhlar, J. Phys. Chem A 123, 2966 (2019), pMID: 30707029",
   "10.1021/acs.jpca.8b11499",
   "@article{Verma2019_2966,\n author = {Verma, Pragya and Wang, Ying and Ghosh, Soumen and He, Xiao and Truhlar, Donald G.},\n title = {Revised M11 Exchange-Correlation Functional for Electronic Excitation Energies and Ground-State Properties},\n journal = {The Journal of Physical Chemistry A},\n volume = {123},\n number = {13},\n pages = {2966-2990},\n year = {2019},\n doi = {10.1021/acs.jpca.8b11499},\n note ={PMID: 30707029},\n URL = {https://doi.org/10.1021/acs.jpca.8b11499}\n}"
 };
@@ -2457,7 +2457,7 @@ func_reference_type xc_ref_Zhao2005_161103 = {
 
 
 func_reference_type xc_ref_Zhao2005_2012 = {
-  "Y. Zhao, N. González-García, and D. G. Truhlar, J. Phys. Chem. A 109, 2012 (2005), pMID: 16833536",
+  "Y. Zhao, N. González-García, and D. G. Truhlar, J. Phys. Chem A 109, 2012 (2005), pMID: 16833536",
   "10.1021/jp045141s",
   "@article{Zhao2005_2012,\nauthor = {Zhao, Yan and González-García, Núria and Truhlar, Donald G.},\ntitle = {Benchmark Database of Barrier Heights for Heavy Atom Transfer, Nucleophilic Substitution, Association, and Unimolecular Reactions and Its Use to Test Theoretical Methods},\njournal = {The Journal of Physical Chemistry A},\nvolume = {109},\nnumber = {9},\npages = {2012-2018},\nyear = {2005},\ndoi = {10.1021/jp045141s},\nnote ={PMID: 16833536},\nURL = {http://dx.doi.org/10.1021/jp045141s}\n}"
 };
@@ -2558,6 +2558,20 @@ func_reference_type xc_ref_vonBarth1972_1629 = {
   "U. von Barth and L. Hedin, J. Phys. C: Solid State Phys. 5, 1629 (1972)",
   "10.1088/0022-3719/5/13/012",
   "@article{vonBarth1972_1629,\n  title = {A local exchange-correlation potential for the spin polarized case. i},\n  author = {U. von Barth and L. Hedin},\n  journal = {J. Phys. C: Solid State Phys.},\n  volume = {5},\n  number = {13},\n  pages = {1629},\n  year = {1972},\n  doi = {10.1088/0022-3719/5/13/012},\n  url = {http://stacks.iop.org/0022-3719/5/i=13/a=012}\n}"
+};
+
+
+func_reference_type xc_ref_Toulouse2004_062505 = {
+  "J. Toulouse, F. Colonna, and A. Savin, Phys. Rev. A 70, 062505 (2004)",
+  "10.1103/PhysRevA.70.062505",
+  "@article{Toulouse2004_062505,\n  title = {Long-range--short-range separation of the electron-electron interactionin density-functional theory},\n  author = {J. Toulouse and F. Colonna and A. Savin},\n  journal = {Phys. Rev. A},\n  volume = {70},\n  number = {6},\n  pages = {062505},\n  year = {2004},\n  doi = {10.1103/PhysRevA.70.062505},\n  url = {https://journals.aps.org/pra/abstract/10.1103/PhysRevA.70.062505}\n}"
+};
+
+
+func_reference_type xc_ref_Fromager2007_074111 = {
+  "E. Fromager, J. Toulouse, and H. J. A. Jensen, J. Chem. Phys. 126, 074111 (2007)",
+  "10.1063/1.2566459",
+  "@article{Fromager2007_074111,\n  title = {On the universality of the long-/short-range separation in multiconfigurational density-functional theory},\n  author = {E. Fromager and J. Toulouse and H. J. Aa. Jensen},\n  journal = {J. Chem. Phys.},\n  volume = {126},\n  number = {7},\n  pages = {074111},\n  year = {2007},\n  doi = {10.1063/1.2566459},\n  url = {https://aip.scitation.org/doi/10.1063/1.2566459}\n}"
 };
 
 

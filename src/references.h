@@ -377,3 +377,5 @@ extern func_reference_type xc_ref_delCampo2012_104108;
 extern func_reference_type xc_ref_gaussianimplementation;
 extern func_reference_type xc_ref_vanLeeuwen1994_2421;
 extern func_reference_type xc_ref_vonBarth1972_1629;
+extern func_reference_type xc_ref_Toulouse2004_062505;
+extern func_reference_type xc_ref_Fromager2007_074111;
