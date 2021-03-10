@@ -1,5 +1,5 @@
 (*
- Copyright (C) 2020 Vera von Burg, Thomas Weymuth
+ Copyright (C) 2020 Thomas Weymuth
 
  This Source Code Form is subject to the terms of the Mozilla Public
  License, v. 2.0. If a copy of the MPL was not distributed with this
