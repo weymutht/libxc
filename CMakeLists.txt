@@ -132,6 +132,7 @@ set(raw_sources_list
   gga_c_ft97.c
   gga_c_gapc.c
   gga_c_gaploc.c
+  gga_c_gws.c
   gga_c_hcth_a.c
   gga_c_lm.c
   gga_c_lyp.c
@@ -196,6 +197,7 @@ set(raw_sources_list
   gga_x_ft97.c
   gga_x_g96.c
   gga_x_gg99.c
+  gga_x_gws.c
   gga_x_hcth_a.c
   gga_x_herman.c
   gga_x_hjs.c
