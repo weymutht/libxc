@@ -3037,3 +3037,10 @@ func_reference_type xc_ref_Fromager2007_074111 = {
 };
 
 
+func_reference_type xc_ref_Goll2005_3917 = {
+  "E. Goll, H.-J. Werner, and H. Stoll, Phys. Chem. Chem. Phys. 7, 3917 (2005)",
+  "10.1039/B509242F",
+  "@article{Goll2005_3917,\n  title = {A short-range gradient-corrected density functional in long-range coupled cluster calculations for rare gas dimers},\n  author = {E. Goll and H.-J. Werner and H. Stoll},\n  journal = {Phys. Chem. Chem. Phys.},\n  volume = {7},\n  number = {23},\n  pages = {3917},\n  year = {2005},\n  doi = {10.1039/B509242F},\n  url = {https://pubs.rsc.org/doi/10.1039/B509242F}\n}"
+};
+
+
