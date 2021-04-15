@@ -32,7 +32,7 @@ static const char  *pbehseri_desc[PBEHSERI_N_PAR]   = {
   "beta constant",
   "(1 - ln(2))/Pi^2 in the PBE",
   "Multiplies the A t^2 term. Used in the SPBE functional",
-  "short-range parameter"};
+  "range-separation parameter"};
 static const double pbehseri_values[PBEHSERI_N_PAR] = 
   {0.06672455060314922, 0.031090690869654895034, 1.0, 0.4};
 
