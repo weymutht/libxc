@@ -8,7 +8,12 @@
 
 #include "util.h"
 
-#define XC_GGA_X_GWS          997 /* Short-range PBE Exchange functional by Goll, Werner, Stoll */
+/************************************************************************
+ Implements a short-range version of the Perdew, Burke & Ernzerhof
+ Generalized Gradient Approximation exchange functional
+************************************************************************/
+
+#define XC_GGA_X_GWS        997 /* Short-range PBE exchange functional by Goll, Werner, Stoll */
 
 typedef struct{
   double kappa, b_pbe, alpha, mu;
@@ -27,16 +32,18 @@ static const char  *gws_names[GWS_N_PAR] = {"_kappa","_b_pbe", "_alpha", "_mu"};
 static const char  *gws_desc[GWS_N_PAR] = {
   "Asymptotic value of the enhancement function", 
   "Coefficient of the 2nd order expansion", 
-  "Fit coefficient of Gaussian cut-off function", 
+  "Fit coefficient of Gaussian cut-off function",
   "Range-separation parameter"};
 
-static const double  gws_values[GWS_N_PAR] = {0.8040, 0.2195149727645171, 19.0, 0.4};
+static const double  gws_values[GWS_N_PAR] =
+  {0.8040, 0.2195149727645171, 19.0, 0.4};
 
-static void gws_lambda_set_ext_params(xc_func_type *p, const double *ext_params)
+static void
+gws_lambda_set_ext_params(xc_func_type *p, const double *ext_params)
 {
   gga_x_gws_params *params;
 
-  assert(p!=NULL && p->params != NULL);
+  assert(p != NULL && p->params != NULL);
   params = (gga_x_gws_params *) (p->params);
 
   params->kappa = get_ext_param(p, ext_params, 0);
@@ -55,7 +62,7 @@ extern "C"
 const xc_func_info_type xc_func_info_gga_x_gws = {
   XC_GGA_X_GWS,
   XC_EXCHANGE,
-  "Short-range PBE by Goll, Werner & Stoll",
+  "Short-range PBE Exchange by Goll, Werner & Stoll",
   XC_FAMILY_GGA,
   {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, NULL, NULL},
   XC_FLAGS_3D | MAPLE2C_FLAGS,
