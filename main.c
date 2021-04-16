@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <xc.h>
+//#include <iostream>
 
 int main()
 
@@ -8,12 +9,26 @@ int main()
   double rho[5] = {0.1, 0.2, 0.3, 0.4, 0.5};
   double sigma[5] = {0.2, 0.3, 0.4, 0.5, 0.6};
   double exc[5];
-  int i, vmajor, vminor, vmicro, func_id = 524; //999; // Use func_id = 130 for standard PBE, 999 for new PBEHSERI, 524 for X_WPBEH
+  int i, vmajor, vminor, vmicro, func_id = 997; //999; // Use func_id = 130 for standard PBE, 999 for new PBEHSERI, 524 for X_WPBEH
 
 xc_version(&vmajor, &vminor, &vmicro);
 printf("Libxc version: %d.%d.%d\n", vmajor, vminor, vmicro);
 
-if(xc_func_init(&func, func_id, XC_UNPOLARIZED) != 0){
+int a = 1000;
+a = xc_func_init(&func, func_id, XC_UNPOLARIZED);
+
+//std::cout << " Integer is: " << a << std::endl;
+//printf(" Integer is: \n");
+//if (a== -2){
+//  printf("Integer is -2");
+//}
+//if (a == 1){
+//  printf("Integer is 1");
+//}
+//if (a==0){
+//  printf("Integer is 0");
+//}
+if(a != 0){
 fprintf(stderr, "Functional '%d' not found\n", func_id);
 return 1;
 }
@@ -34,7 +49,7 @@ int  npar = xc_func_info_get_n_ext_params(func.info);
 
 
 // Get default value of mu
-double mu = xc_func_info_get_ext_params_default_value(func.info, 0);
+double mu = xc_func_info_get_ext_params_default_value(func.info, 3);
 printf("Default value of mu: %f\n", mu);
 
 for (int j=0;j<4;j++){
@@ -54,7 +69,8 @@ switch(j)
           printf("mu now: %lf", mu);
           break;
 }
-printf("Setting mu: \n");
+
+printf("\nSetting mu: \n");
 xc_func_set_ext_params_name(&func, "_mu", mu);
 printf("Setting omega: \n");
 xc_func_set_ext_params_name(&func, "_omega", mu);
