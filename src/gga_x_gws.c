@@ -56,7 +56,7 @@ gws_lambda_set_ext_params(xc_func_type *p, const double *ext_params)
 #include "maple2c/gga_exc/gga_x_gws.c"
 #include "work_gga.c"
 
-#ifdef __cpluplus
+#ifdef __cplusplus
 extern "C"
 #endif
 const xc_func_info_type xc_func_info_gga_x_gws = {
