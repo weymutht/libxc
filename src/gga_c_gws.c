@@ -1,5 +1,5 @@
 /*
- Copyright (C) 2020 Vera von Burg, Thomas Weymuth
+ Copyright (C) 2021 V. von Burg
 
  This Source Code Form is subject to the terms of the Mozilla Public
  License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -19,7 +19,6 @@ typedef struct{
   double alpha, pbe_beta, pbe_gamma, mu;
 } gga_c_gws_params;
 
-
 static void gga_c_gws_init(xc_func_type *p)
 {
   gga_c_gws_params *params;
@@ -35,6 +34,7 @@ static const char  *gws_desc[GWS_N_PAR]   = {
   "PBE beta constant",
   "PBE gamma constant",
   "Range-separation parameter"};
+
 static const double gws_values[GWS_N_PAR] =
   {2.83, 0.06672455060314922, 0.031090690869654895034, 0.4};
 
@@ -64,7 +64,7 @@ const xc_func_info_type xc_func_info_gga_c_gws = {
   XC_CORRELATION,
   "Short-range PBE version of Goll, Werner & Stoll ",
   XC_FAMILY_GGA,
-  {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, NULL},
+  {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, NULL, NULL},
   XC_FLAGS_3D | MAPLE2C_FLAGS,
   1e-12,
   {GWS_N_PAR, gws_names, gws_desc, gws_values, gws_lambda_set_ext_params},
