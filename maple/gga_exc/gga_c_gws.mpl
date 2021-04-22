@@ -24,14 +24,21 @@ params_a_BB    := 1:
 $endif *)
 
 params_a_alpha := 2.83:
-params_a_pbe_beta  := 0.06672455060314922:
-params_a_pbe_gamma := (1 - log(2))/Pi^2:
+# original PBE beta value
+#params_a_pbe_beta  := 0.06672455060314922:
+# beta value given in paper
+params_a_pbe_beta := 0.066725:
+# Original PBE value?
+#params_a_pbe_gamma := (1 - log(2))/Pi^2:
+# Value given in paper
+params_a_pbe_gamma := 0.031091:
+
 mu := params_a_mu :
 
 (* In lda_c_pgb06.mpl, p_a_cam_omega is used as the range-separation parameter. Set its value to the one of mu here. *)
 p_a_cam_omega := mu:
 
-# Replica from pmgb06.mpl so that no two functions carry same name f
+# Replica from pmgb06.mpl so that no two functions are called 'f'
 fsr_c_lda := (rs, z) -> f_pw(rs,z) - pmgb_ec_LR(rs,z):
 
 gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z)/  f_pw(rs, z))**params_a_alpha:
@@ -49,5 +56,6 @@ f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1
 fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
 
 f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) + fH(rs, z, tp(rs,z,xt)):
+#f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) :
 
 f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
