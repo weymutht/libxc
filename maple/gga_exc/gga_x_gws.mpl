@@ -37,7 +37,7 @@ gws_b := (rs) ->  -(params_a_b_pbe)*tcs_b(rs)*exp(-params_a_alpha*mu_red2(rs)):
 
 gws_f0 := (s, rs) -> 1 + params_a_kappa*(1 - params_a_kappa/(params_a_kappa + gws_b(rs)*s^2)):
 
-fsr_x_lda := (rs) -> -(18/Pi^2)^(1/3)*(1/rs) * ( 3/8 - mu_red(rs)*(sqrt(Pi)*erf(0.5*mu_red(rs)) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red(rs)^2)) - 3*mu_red(rs) + 4*mu_red(rs)^3 )) :
+fsr_x_lda := (rs) -> -(18/Pi^2)^(1/3)*(1/rs)*( 3/8 - mu_red(rs)*(sqrt(Pi)*erf(0.5/mu_red(rs)) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red2(rs))) - 3*mu_red(rs) + 4*mu_red(rs)^3 )) :
 
 x2s := 1/(2*(3*Pi^2)^(1/3)):
 gws_f := (x, rs) -> gws_f0(x2s*x, rs):
