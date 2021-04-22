@@ -39,7 +39,7 @@ libxc_la_FUNC_SOURCES = \
 	special_functions.c bessel.c expint_e1.c faddeeva.c integrate.c		\
 	math_brent.c util.c mix_func.c func_info.c functionals.c	\
 	version.c func_reference.c \
-	lda.c lda_x_erf_jt.c \
+	lda.c lda_x_erf.c \
 	lda_x.c lda_x_2d.c lda_c_wigner.c lda_c_gombas.c lda_c_rpa.c	\
 	lda_c_hl.c lda_c_vwn.c lda_c_vwn_1.c lda_c_vwn_2.c		\
 	lda_c_vwn_3.c lda_c_vwn_4.c lda_c_vwn_rpa.c lda_c_pz.c		\
@@ -47,7 +47,7 @@ libxc_la_FUNC_SOURCES = \
 	lda_xc_teter93.c lda_c_1d_csc.c lda_c_1d_loos.c			\
 	lda_c_2d_amgb.c lda_c_2d_prm.c lda_k_tf.c lda_xc_zlp.c		\
 	lda_xc_ksdt.c lda_c_chachiyo.c lda_c_chachiyo_mod.c		\
-	lda_xc_1d_ehwlrg.c lda_x_rel.c lda_x_erf.c lda_k_zlp.c		\
+	lda_xc_1d_ehwlrg.c lda_x_rel.c lda_k_zlp.c		\
 	lda_c_gk72.c lda_xc_bn05.c lda_c_pmgb06.c			\
 	lda_k_gds08_worker.c lda_xc_tih.c lda_x_1d_exponential.c	\
 	lda_x_1d_soft.c hyb_lda_xc_cam_lda0.c lda_x_sloc.c \
