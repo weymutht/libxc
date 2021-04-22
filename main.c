@@ -9,7 +9,7 @@ int main()
   double rho[5] = {0.1, 0.2, 0.3, 0.4, 0.5};
   double sigma[5] = {0.2, 0.3, 0.4, 0.5, 0.6};
   double exc[5];
-  int i, vmajor, vminor, vmicro, func_id = 997; //999; // Use func_id = 130 for standard PBE, 999 for new PBEHSERI, 524 for X_WPBEH
+  int i, vmajor, vminor, vmicro, func_id = 998; //Use func_id = 130 for standard PBE, 999 for new PBEHSERI, 524 for X_WPBEH, 997 for GWS Exchange, 998 for GWS correlation, 590 for sr-LDA correlation  
 
 xc_version(&vmajor, &vminor, &vmicro);
 printf("Libxc version: %d.%d.%d\n", vmajor, vminor, vmicro);
@@ -38,7 +38,7 @@ int  npar = xc_func_info_get_n_ext_params(func.info);
 
 
 // Get default value of mu
-double mu = xc_func_info_get_ext_params_default_value(func.info, 0);
+double mu = xc_func_info_get_ext_params_default_value(func.info, 3);
 printf("Default value of mu: %f\n", mu);
 
 for (int j=0;j<4;j++){
@@ -46,23 +46,23 @@ for (int j=0;j<4;j++){
 switch(j)
 {
   case 0: mu = 0.0;
-          printf("mu now: %lf", mu);
+          printf("\nmu now: %lf", mu);
           break;
   case 1: mu = 0.4;
-          printf("mu now: %lf", mu);
+          printf("\nmu now: %lf", mu);
           break;
   case 2: mu = 10;
-          printf("mu now: %lf", mu);
+          printf("\nmu now: %lf", mu);
           break;
   case 3: mu = 1000000;
-          printf("mu now: %lf", mu);
+          printf("\nmu now: %lf", mu);
           break;
 }
 
-printf("\nSetting mu: \n");
+printf("\nSetting mu to %lf ", mu);
 xc_func_set_ext_params_name(&func, "_mu", mu);
-printf("Setting omega: \n");
-xc_func_set_ext_params_name(&func, "_omega", mu);
+//printf("Setting omega: \n");
+//xc_func_set_ext_params_name(&func, "_omega", mu);
 
 switch(func.info->family)
 {
