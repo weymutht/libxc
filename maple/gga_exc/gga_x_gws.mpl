@@ -28,16 +28,18 @@ coeff_b_c2 := (rs) -> 2*mu_red2(rs)*(-7 + 72*mu_red2(rs)):
 coeff_b_c3 := (rs) -> -864*mu_red2(rs)^2*(-1 + 2*mu_red2(rs)):
 coeff_b_c4 := (rs) -> mu_red2(rs)*(-3 - 24*mu_red2(rs) + 32*mu_red2(rs)^2 + 8*mu_red(rs)*sqrt(Pi)*erf(1/(2*mu_red(rs)))) :
 
-tcs_b := (rs) -> (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*mu_red2(rs))))/( coeff_b_c3(rs) + 54*coeff_b_c4(rs)*exp(1/(4*mu_red2(rs)))) :
+if (mu = 0.0) then
+  tcs_b := (rs) -> -1 :
+  fsr_x_lda := (rs) -> -(18/Pi^2)^(1/3)*(1/rs)*(3/8) :
+else
+  tcs_b := (rs) -> (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*mu_red2(rs))))/( coeff_b_c3(rs) + 54*coeff_b_c4(rs)*exp(1/(4*mu_red2(rs)))) :
+  fsr_x_lda := (rs) -> -(18/Pi^2)^(1/3)*(1/rs)*( 3/8 - mu_red(rs)*(sqrt(Pi)*erf(0.5/mu_red(rs)) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red2(rs))) - 3*mu_red(rs) + 4*mu_red(rs)^3 )) :
+end if
 
-(* gws_b := (mu_red, mu_red, mu_red2, rs) ->  ( params_a_b_pbe / tcs_b(0.0, 0.0, 0.0, 0.0,rs))*tcs_b(mu_red(rs), mu_red(rs), mu_red2(rs), rs)*exp(-params_a_alpha*mu_red(rs)^2) *)
-(* tcs_b(0) = -1 *)
-
+(* - sign comes from tcs_b(0) = -1 *)
 gws_b := (rs) ->  -(params_a_b_pbe)*tcs_b(rs)*exp(-params_a_alpha*mu_red2(rs)):
 
 gws_f0 := (s, rs) -> 1 + params_a_kappa*(1 - params_a_kappa/(params_a_kappa + gws_b(rs)*s^2)):
-
-fsr_x_lda := (rs) -> -(18/Pi^2)^(1/3)*(1/rs)*( 3/8 - mu_red(rs)*(sqrt(Pi)*erf(0.5/mu_red(rs)) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red2(rs))) - 3*mu_red(rs) + 4*mu_red(rs)^3 )) :
 
 x2s := 1/(2*(3*Pi^2)^(1/3)):
 gws_f := (x, rs) -> gws_f0(x2s*x, rs):
