@@ -17,12 +17,23 @@ alpha := (4/(9*Pi))^(1/3):
 # Eq. (46) of Phys. Rev. A 73, 032506 (2006)
 # I am not sure if this is the on-top pair correlation functional
 # intended by the authors
-g0_C    :=  0.08193:
-g0_D    := -0.01277:
-g0_E    :=  0.001859:
-g0_dd   :=  0.7524:
-g0_aHD  := -alpha*(Pi^2 + 6*log(2) - 3)/(5 * Pi):
-g0_B    := -2*g0_aHD - g0_dd:
+
+# For each parameter, two values are listed here:
+# The value on the first line is the one from the paper, whereas the value on
+# the second line is the one used in the reference implementation provided
+# on Paola Gori-Giorgis website
+
+#g0_C    :=  0.08193:
+g0_C     :=  0.0819306:
+#g0_D    := -0.01277:
+g0_D     := -0.0127713:
+#g0_E    :=  0.001859:
+g0_E     :=  0.00185898:
+#g0_dd   :=  0.7524:
+g0_dd    :=  0.752411:
+#g0_aHD  := -alpha*(Pi^2 + 6*log(2) - 3)/(5 * Pi):
+#g0_B    := -2*g0_aHD - g0_dd:
+g0_B     := 0.7317 - g0_dd:
 pmgb_g0 := rs ->
         (1 - g0_B*rs + g0_C*rs^2 + g0_D*rs^3 + g0_E*rs^4)*exp(-g0_dd*rs)/2:
 
