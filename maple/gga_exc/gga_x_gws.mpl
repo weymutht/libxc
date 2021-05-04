@@ -33,7 +33,7 @@ tcs_b := (rs) -> ((-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb
 
 f_x_lda := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(3/8):
 
-fsr_x_lda := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(- mu_red(rs)*(sqrt(Pi)*erf(0.5/(mu_red(rs)*my_piecewise3(evalb(mu_red(rs)> 10^(-9)),mu_red(rs),0.5))) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red2(rs)*my_piecewise3(evalb(mu_red2(rs)> 10^(-9)),mu_red2(rs),0.25) )) - 3*mu_red(rs) + 4*mu_red(rs)^3 ))*my_piecewise3(evalb(mu_red(rs) > 10^(-9)), 1.0, 0.0) + f_x_lda(rs) :
+fsr_x_lda := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(- mu_red(rs)*(sqrt(Pi)*erf(0.5/(my_piecewise3(evalb(mu_red(rs)> 10^(-9)),mu_red(rs),0.5))) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*my_piecewise3(evalb(mu_red(rs)> 10^(-9)),mu_red2(rs),0.25) )) - 3*mu_red(rs) + 4*mu_red(rs)^3 ))*my_piecewise3(evalb(mu_red(rs) > 10^(-9)), 1.0, 0.0) + f_x_lda(rs) :
 
 (* tcs_b(0) = 7/81 *)
 
