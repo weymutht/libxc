@@ -28,22 +28,25 @@ coeff_b_c2 := (rs) -> 2*mu_red2(rs)*(-7 + 72*mu_red2(rs)):
 coeff_b_c3 := (rs) -> -864*mu_red2(rs)^2*(-1 + 2*mu_red2(rs)):
 coeff_b_c4 := (rs) -> mu_red2(rs)*(-3 - 24*mu_red2(rs) + 32*mu_red2(rs)^2 + 8*mu_red(rs)*sqrt(Pi)*erf(1/(2*mu_red(rs)))) :
 
-tcs_b := (rs) -> ((-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb(mu_red2(rs) > 10^(-9) ), mu_red2(rs),0.25))))/( coeff_b_c3(rs) + 54*coeff_b_c4(rs)*exp(1/(4*my_piecewise3(evalb(mu_red2(rs) > 10^(-9)),mu_red2(rs),0.25)  ))))*my_piecewise3(evalb(mu_red2(rs) > 10^(-9)), 1.0, 0.0) + my_piecewise3(evalb(mu_red2(rs) > 10^(-9)), 0.0, 7.0/81.0) :
+# my_piecewise is used to avert tcs_b being undefined; insert arbitrary non-zero value for the case that mu_red is very small
+tcs_b := (rs) -> ((-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) > 10^(-9) ), mu_red2(rs),0.25))))/ ( coeff_b_c3(rs)  + 54*coeff_b_c4(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) > 10^(-9)),mu_red2(rs),0.25))))) :
 
 f_x_lda := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(3/8):
 
-fsr_x_lda := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(- mu_red(rs)*(sqrt(Pi)*erf(0.5/(mu_red(rs)*my_piecewise3(mu_red(rs),mu_red(rs),0.5))) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red2(rs)*my_piecewise3(mu_red2(rs),mu_red2(rs),0.25) )) - 3*mu_red(rs) + 4*mu_red(rs)^3 ))*my_piecewise3(mu, 1.0, 0.0) + f_x_lda(rs) :
+fsr_x_lda := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(- mu_red(rs)*(sqrt(Pi)*erf(0.5/(mu_red(rs)*my_piecewise3(evalb(mu_red(rs)> 10^(-9)),mu_red(rs),0.5))) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*mu_red2(rs)*my_piecewise3(evalb(mu_red2(rs)> 10^(-9)),mu_red2(rs),0.25) )) - 3*mu_red(rs) + 4*mu_red(rs)^3 ))*my_piecewise3(evalb(mu_red(rs) > 10^(-9)), 1.0, 0.0) + f_x_lda(rs) :
 
-#gws_b := (rs) ->  -(params_a_b_pbe)*tcs_b(rs)*exp(-params_a_alpha*mu_red2(rs)):
 (* tcs_b(0) = 7/81 *)
-gws_b := (rs) ->  (params_a_b_pbe/(7.0/81.0))*tcs_b(rs)*exp(-params_a_alpha*mu_red2(rs)):
+
+gws_b_pre := (rs) ->  (params_a_b_pbe/(7.0/81.0))*exp(-params_a_alpha*mu_red2(rs)):
+
+# Protect against divergence again and ensure that correct overall formula is obtained
+gws_b := (rs) ->  gws_b_pre(rs)*my_piecewise3(evalb(mu_red(rs) > 10^(-9)),tcs_b(rs),(7.0/81.0)):
 
 gws_f0 := (s, rs) -> 1 + params_a_kappa*(1 - params_a_kappa/(params_a_kappa + gws_b(rs)*s^2)):
- 
+
 x2s := 1/(2*(3*Pi^2)^(1/3)):
 
 # Argument will be 1/(2*(3*Pi^2)^(1/3))*xs0
 gws_f := (x, rs) -> gws_f0(x2s*x, rs):
  
-#f := (rs, z, xt, xs0, xs1) -> fsr_x_lda(rs) :
 f := (rs, z, xt, xs0, xs1) -> fsr_x_lda(rs)*gws_f(xs0, rs) :
