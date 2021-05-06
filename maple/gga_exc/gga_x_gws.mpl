@@ -27,8 +27,7 @@ mu_red2 := (rs) ->  mu_red(rs)^2 :
 coeff_b_c1 := (rs) -> 1 + 22*mu_red2(rs) + 144*(mu_red2(rs))^2:
 coeff_b_c2 := (rs) -> 2*mu_red2(rs)*(-7 + 72*mu_red2(rs)):
 coeff_b_c3 := (rs) -> -864*mu_red2(rs)^2*(-1 + 2*mu_red2(rs)):
-#coeff_b_c4 := (rs) -> mu_red2(rs)*(-3 - 24*mu_red2(rs) + 32*mu_red2(rs)^2 + 8*mu_red(rs)*sqrt(Pi)*erf(1/(2*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red(rs))))) :
-coeff_b_c4 := (rs) -> 1 :
+coeff_b_c4 := (rs) -> mu_red2(rs)*(-3 - 24*mu_red2(rs) + 32*mu_red2(rs)^2 + 8*mu_red(rs)*sqrt(Pi)*erf(1/(2*my_piecewise3(evalb(mu_red(rs) < 0.075 or mu_red(rs) > 50), 1.0, mu_red(rs))))) :
 
 # my_piecewise is used to avert tcs_b being undefined; insert arbitrary non-zero value for the case that mu_red is very small #tcs_b_basic := (rs) -> (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) > 0.075), mu_red2(rs),0.25))))/ ( coeff_b_c3(rs)  + 54*coeff_b_c4(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) > 0.075)),mu_red2(rs),0.25))) :
 
@@ -36,7 +35,8 @@ tcs_b_low := (rs) -> (-7 + 72*mu_red2(rs))/(27*(-3 -24*mu_red2(rs) + 32*mu_red2(
 
 tcs_b_high := (rs) -> 1/(72*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs))) - 1/(1728*(my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs)))^2) - 23/(358400*(my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs)))^3):
 
-tcs_b_medium := (rs) ->  (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs))) ))/(coeff_b_c3(rs)  + 54*coeff_b_c4(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs)))) + my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, 0.0)) :
+tcs_b_medium := (rs) ->  (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs))) ))/(coeff_b_c3(rs)  + 54*coeff_b_c4(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) < 0.075 or mu_red(rs) > 50), 1.0, mu_red2(rs)))) + my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, 0.0)) :
+
 
 tcs_b := (rs) -> tcs_b_low(rs)*Heaviside(0.075 - mu_red(rs))  + Heaviside(mu_red(rs) - 50)*tcs_b_high(rs) + tcs_b_medium(rs)*Heaviside(mu_red(rs) - 0.075)*Heaviside(50 - mu_red(rs)): 
 
