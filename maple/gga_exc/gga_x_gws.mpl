@@ -40,7 +40,7 @@ tcs_b_medium := (rs) ->  (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise
 
 tcs_b := (rs) -> tcs_b_low(rs)*Heaviside(0.075 - mu_red(rs))  + Heaviside(mu_red(rs) - 50)*tcs_b_high(rs) + tcs_b_medium(rs)*Heaviside(mu_red(rs) - 0.075)*Heaviside(50 - mu_red(rs)): 
 
-f_x_lda_prefactor := (rs) ->  (18/Pi^2)^(1/3)*(1/rs):
+f_x_lda_prefactor := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs):
 
 ### protected against divergence fsr_x_lda_basic := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs)*(- mu_red(rs)*(sqrt(Pi)*erf(0.5/(my_piecewise3(evalb(mu_red(rs)> 10^(-9)),mu_red(rs),0.5))) + (2*mu_red(rs) - 4*mu_red(rs)^3)*exp(-1/(4*my_piecewise3(evalb(mu_red(rs)> 10^(-9)),mu_red2(rs),0.25) )) - 3*mu_red(rs) + 4*mu_red(rs)^3 ))*my_piecewise3(evalb(mu_red(rs) > 10^(-9)), 1.0, 0.0) + f_x_lda(rs) :
 
