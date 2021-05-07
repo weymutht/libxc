@@ -21,7 +21,8 @@ mu             := params_a_mu :
 
 # kF is defined in utils.mpl
 # 6. check if replacing kF improves results
-mu_red := (rs) -> mu / (2*kF(rs,0)):
+kFF := (rs) -> (9*Pi/4)^(1/3)*(1/rs):
+mu_red := (rs) -> mu / (2*kFF(rs)):
 mu_red2 := (rs) ->  mu_red(rs)^2 :
 
 coeff_b_c1 := (rs) -> 1 + 22*mu_red2(rs) + 144*(mu_red2(rs))^2:
@@ -57,10 +58,10 @@ gws_b := (rs) -> gws_b_pre(rs)*tcs_b(rs) :
 
 gws_f0 := (s, rs) -> 1 + params_a_kappa*(1 - params_a_kappa/(params_a_kappa + gws_b(rs)*s^2)):
 
-x2s := 1/(2*(3*Pi^2)^(1/3)):
+x2s := 1/(2*(6*Pi^2)^(1/3)):
 
 # Argument will be 1/(2*(3*Pi^2)^(1/3))*xs0
-gws_f := (x, rs) -> gws_f0(x, rs):
+gws_f := (x, rs) -> gws_f0(x2s*x, rs):
 
 f := (rs, z, xt, xs0, xs1) -> fsr_x_lda(rs)*gws_f(xs0, rs) :
 
