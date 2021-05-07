@@ -60,7 +60,7 @@ gws_f0 := (s, rs) -> 1 + params_a_kappa*(1 - params_a_kappa/(params_a_kappa + gw
 x2s := 1/(2*(3*Pi^2)^(1/3)):
 
 # Argument will be 1/(2*(3*Pi^2)^(1/3))*xs0
-gws_f := (x, rs) -> gws_f0(x2s*x, rs):
+gws_f := (x, rs) -> gws_f0(x, rs):
 
 f := (rs, z, xt, xs0, xs1) -> fsr_x_lda(rs)*gws_f(xs0, rs) :
 
