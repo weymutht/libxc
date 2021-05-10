@@ -41,7 +41,7 @@ p_a_cam_omega := mu:
 # Replica from pmgb06.mpl so that no two functions are called 'f'
 fsr_c_lda := (rs, z) -> f_pw(rs,z) - pmgb_ec_LR(rs,z):
 
-gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z)/  f_pw(rs, z))**params_a_alpha:
+gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z)/  f_pw(rs, z))^params_a_alpha:
 
 tp   := (rs, z, xt) -> tt(rs, z, xt):
 
