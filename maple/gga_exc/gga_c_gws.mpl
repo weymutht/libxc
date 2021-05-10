@@ -25,9 +25,9 @@ $endif *)
 
 params_a_alpha := 2.83:
 # original PBE beta value
-#params_a_pbe_beta  := 0.06672455060314922:
+params_a_pbe_beta  := 0.06672455060314922:
 # beta value given in paper
-params_a_pbe_beta := 0.066725:
+#params_a_pbe_beta := 0.066725:
 # Original PBE value?
 #params_a_pbe_gamma := (1 - log(2))/Pi^2:
 # Value given in paper
