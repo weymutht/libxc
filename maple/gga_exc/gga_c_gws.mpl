@@ -24,14 +24,15 @@ params_a_BB    := 1:
 $endif *)
 
 params_a_alpha := 2.83:
+#params_a_alpha := 2.78:
 # original PBE beta value
 params_a_pbe_beta  := 0.06672455060314922:
 # beta value given in paper
 #params_a_pbe_beta := 0.066725:
 # Original PBE value?
-#params_a_pbe_gamma := (1 - log(2))/Pi^2:
+params_a_pbe_gamma := (1 - log(2))/Pi^2:
 # Value given in paper
-params_a_pbe_gamma := 0.031091:
+#params_a_pbe_gamma := 0.031091:
 
 mu := params_a_mu :
 
@@ -41,7 +42,7 @@ p_a_cam_omega := mu:
 # Replica from pmgb06.mpl so that no two functions are called 'f'
 fsr_c_lda := (rs, z) -> f_pw(rs,z) - pmgb_ec_LR(rs,z):
 
-gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z)/  f_pw(rs, z))^params_a_alpha:
+gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z) /  f_pw(rs, z))^params_a_alpha:
 
 tp   := (rs, z, xt) -> tt(rs, z, xt):
 
