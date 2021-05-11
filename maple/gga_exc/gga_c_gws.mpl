@@ -23,8 +23,8 @@ params_a_pbe_gamma := (1 - log(2))/Pi^2:
 params_a_BB    := 1:
 $endif *)
 
-params_a_alpha := 2.83:
-#params_a_alpha := 2.78:
+#params_a_alpha := 2.83:
+params_a_alpha := 2.78:
 # original PBE beta value
 params_a_pbe_beta  := 0.06672455060314922:
 # beta value given in paper
