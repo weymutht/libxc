@@ -18,10 +18,10 @@ $define lda_c_pw_params
 $define lda_c_pw_modified_params
 $include "lda_c_pmgb06.mpl"
 
-(* $ifdef gga_c_gws_params
-params_a_pbe_gamma := (1 - log(2))/Pi^2:
-params_a_BB    := 1:
-$endif *)
+#(* $ifdef gga_c_gws_params
+#params_a_pbe_gamma := (1 - log(2))/Pi^2:
+#params_a_BB    := 1:
+#$endif *)
 
 #params_a_alpha := 2.83:
 params_a_alpha := 2.78:
@@ -42,21 +42,21 @@ p_a_cam_omega := mu:
 # Replica from pmgb06.mpl so that no two functions are called 'f'
 fsr_c_lda := (rs, z) -> f_pw(rs,z) - pmgb_ec_LR(rs,z):
 
-gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z) /  f_pw(rs, z))^params_a_alpha:
+#gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z) /  f_pw(rs, z))^params_a_alpha:
+#
+#tp   := (rs, z, xt) -> tt(rs, z, xt):
+#
+#(* Equation (6) *)
+#A := (rs, z, t) ->
+#  gws_beta(rs, z)/(params_a_pbe_gamma*(exp(-fsr_c_lda(rs, z)/(params_a_pbe_gamma)) - 1)):
+#
+#f1 := (rs, z, t) -> t^2 + A(rs, z, t)*t^4:
+#
+#f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1 + A(rs, z, t)*f1(rs, z, t))):
+#
+#fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
+#
+#f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) + fH(rs, z, tp(rs,z,xt)):
 
-tp   := (rs, z, xt) -> tt(rs, z, xt):
-
-(* Equation (6) *)
-A := (rs, z, t) ->
-  gws_beta(rs, z)/(params_a_pbe_gamma*(exp(-fsr_c_lda(rs, z)/(params_a_pbe_gamma)) - 1)):
-
-f1 := (rs, z, t) -> t^2 + A(rs, z, t)*t^4:
-
-f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1 + A(rs, z, t)*f1(rs, z, t))):
-
-fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
-
-f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) + fH(rs, z, tp(rs,z,xt)):
-#f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) :
-
-f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
+#f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
+f := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z): 
