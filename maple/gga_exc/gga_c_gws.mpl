@@ -42,21 +42,22 @@ p_a_cam_omega := mu:
 # Replica from pmgb06.mpl so that no two functions are called 'f'
 fsr_c_lda := (rs, z) -> f_pw(rs,z) - pmgb_ec_LR(rs,z):
 
-#gws_beta := (rs, z) -> params_a_pbe_beta*(fsr_c_lda(rs, z) /  f_pw(rs, z))^params_a_alpha:
-#
-#tp   := (rs, z, xt) -> tt(rs, z, xt):
-#
-#(* Equation (6) *)
-#A := (rs, z, t) ->
-#  gws_beta(rs, z)/(params_a_pbe_gamma*(exp(-fsr_c_lda(rs, z)/(params_a_pbe_gamma)) - 1)):
-#
-#f1 := (rs, z, t) -> t^2 + A(rs, z, t)*t^4:
-#
-#f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1 + A(rs, z, t)*f1(rs, z, t))):
-#
-#fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
-#
-#f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) + fH(rs, z, tp(rs,z,xt)):
+gws_beta := (rs, z) -> (params_a_pbe_beta*(fsr_c_lda(rs, z) /  f_pw(rs, z))^params_a_alpha)*my_piecewise3(evalb((fsr_c_lda(rs,z)/f_pw(rs,z)) <= 0.0), 0.0, 1.0 ) :
 
-#f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
-f := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z): 
+tp   := (rs, z, xt) -> tt(rs, z, xt):
+
+(* Equation (6) *)
+A := (rs, z, t) ->
+  gws_beta(rs, z)/(params_a_pbe_gamma*(exp(-fsr_c_lda(rs, z)/(params_a_pbe_gamma)) - 1)):
+
+f1 := (rs, z, t) -> t^2 + A(rs, z, t)*t^4:
+
+f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1 + A(rs, z, t)*f1(rs, z, t))):
+
+fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
+
+f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) + fH(rs, z, tp(rs,z,xt)):
+
+f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
+
+# srlda-c yields correct energy #f := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z): 
