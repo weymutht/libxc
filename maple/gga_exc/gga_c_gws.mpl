@@ -30,7 +30,7 @@ params_a_pbe_beta  := 0.06672455060314922:
 # beta value given in paper
 #params_a_pbe_beta := 0.066725:
 # Original PBE value?
-params_a_pbe_gamma := (1 - log(2))/Pi^2:
+params_a_pbe_gamma := (1 - log(2))/(Pi^2):
 # Value given in paper
 #params_a_pbe_gamma := 0.031091:
 
@@ -40,11 +40,13 @@ mu := params_a_mu :
 p_a_cam_omega := mu:
 
 # Replica from pmgb06.mpl so that no two functions are called 'f'
-fsr_c_lda := (rs, z) -> f_pw(rs,z) - pmgb_ec_LR(rs,z):
+fsr_c_lda := (rs, z) -> f_pw(rs, z) - pmgb_ec_LR(rs, z):
 
-gws_beta := (rs, z) -> (params_a_pbe_beta*(fsr_c_lda(rs, z) /  f_pw(rs, z))^params_a_alpha)*my_piecewise3(evalb((fsr_c_lda(rs,z)/f_pw(rs,z)) <= 0.0), 0.0, 1.0 ) :
+gws_beta := (rs, z) -> (params_a_pbe_beta*(fsr_c_lda(rs, z)/f_pw(rs, z))^params_a_alpha)*my_piecewise3(evalb((fsr_c_lda(rs,z)/f_pw(rs,z)) <= 0.0), 0.0, 1.0 ) :
 
-tp   := (rs, z, xt) -> tt(rs, z, xt):
+#tp   := (rs, z, xt) -> tt(rs, z, xt):
+
+t_test := (rs, z, xt) -> xt / (4*2^(1/3)*sqrt(rs)):
 
 (* Equation (6) *)
 A := (rs, z, t) ->
@@ -56,7 +58,7 @@ f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1
 
 fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
 
-f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z) + fH(rs, z, tp(rs,z,xt)):
+f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs, z) + fH(rs, z, t_test(rs, z, xt)):
 
 f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
 
