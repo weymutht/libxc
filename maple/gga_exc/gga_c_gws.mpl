@@ -39,7 +39,7 @@ mu := params_a_mu :
 (* In lda_c_pgb06.mpl, p_a_cam_omega is used as the range-separation parameter. Set its value to the one of mu here. *)
 p_a_cam_omega := mu:
 
-# Replica from pmgb06.mpl so that no two functions are called 'f'
+# Copy from pmgb06.mpl so that no two functions are called 'f'
 fsr_c_lda := (rs, z) -> f_pw(rs, z) - pmgb_ec_LR(rs, z):
 
 gws_beta := (rs, z) -> (params_a_pbe_beta*(fsr_c_lda(rs, z)/f_pw(rs, z))^params_a_alpha)*my_piecewise3(evalb((fsr_c_lda(rs,z)/f_pw(rs,z)) <= 0.0), 0.0, 1.0 ) :
@@ -49,17 +49,21 @@ gws_beta := (rs, z) -> (params_a_pbe_beta*(fsr_c_lda(rs, z)/f_pw(rs, z))^params_
 t_test := (rs, z, xt) -> xt / (4*2^(1/3)*sqrt(rs)):
 
 (* Equation (6) *)
-A := (rs, z, t) ->
-  gws_beta(rs, z)/(params_a_pbe_gamma*(exp(-fsr_c_lda(rs, z)/(params_a_pbe_gamma)) - 1)):
+
+tolerance := 10^(-7) : 
+A_den := (rs, z, t) -> exp(-fsr_c_lda(rs,z) / params_a_pbe_gamma)  - 1.0 :
+
+A := (rs, z, t) -> gws_beta(rs, z)/(params_a_pbe_gamma*A_den(rs,z,t)):
 
 f1 := (rs, z, t) -> t^2 + A(rs, z, t)*t^4:
 
-f2 := (rs, z, t) -> params_a_pbe_beta(rs, z)*f1(rs, z, t)/(params_a_pbe_gamma*(1 + A(rs, z, t)*f1(rs, z, t))):
+f2 := (rs, z, t) -> params_a_pbe_beta*f1(rs, z, t)/(params_a_pbe_gamma*(1.0 + A(rs, z, t)*f1(rs, z, t))):
 
-fH := (rs, z, t) -> params_a_pbe_gamma*log(1 + f2(rs, z, t)):
+fH := (rs, z, t) -> params_a_pbe_gamma*log(1.0 + f2(rs, z, t)):
 
-f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs, z) + fH(rs, z, t_test(rs, z, xt)):
+f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs, z) + fH(rs, z, t_test(rs, z, xt))*my_piecewise3(evalb(m_abs(A_den(rs, z, t_test(rs,z,xt) )) <= gws_beta(rs,z)*tolerance), 0.0, 1.0):
 
 f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
 
 # srlda-c yields correct energy #f := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z): 
+# gws_beta reduces to zero f :=  (rs, z, xt, xs0, xs1) -> gws_beta(rs,z) :
