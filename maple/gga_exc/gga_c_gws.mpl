@@ -57,13 +57,17 @@ A := (rs, z, t) -> gws_beta(rs, z)/(params_a_pbe_gamma*A_den(rs,z,t)):
 
 f1 := (rs, z, t) -> t^2 + A(rs, z, t)*t^4:
 
-f2 := (rs, z, t) -> params_a_pbe_beta*f1(rs, z, t)/(params_a_pbe_gamma*(1.0 + A(rs, z, t)*f1(rs, z, t))):
+f2 := (rs, z, t) -> gws_beta(rs,z)*f1(rs, z, t)/(params_a_pbe_gamma*(1.0 + A(rs, z, t)*f1(rs, z, t))):
 
 fH := (rs, z, t) -> params_a_pbe_gamma*log(1.0 + f2(rs, z, t)):
 
 f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs, z) + fH(rs, z, t_test(rs, z, xt))*my_piecewise3(evalb(m_abs(A_den(rs, z, t_test(rs,z,xt) )) <= gws_beta(rs,z)*tolerance), 0.0, 1.0):
 
+#correct one:
 f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
 
-# srlda-c yields correct energy #f := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z): 
+# fH does *not* reduce to zero for large mu as it should
+#f  := (rs, z, xt, xs0, xs1) -> fH(rs, z, t_test(rs,z,xt)) :
+# srlda-c yields correct energy #
+#f := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs,z): 
 # gws_beta reduces to zero f :=  (rs, z, xt, xs0, xs1) -> gws_beta(rs,z) :
