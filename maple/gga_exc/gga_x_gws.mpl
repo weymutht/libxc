@@ -36,7 +36,6 @@ tcs_b_high := (rs) -> 1/(72*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red
 
 tcs_b_medium := (rs) ->  (-coeff_b_c1(rs) + coeff_b_c2(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, mu_red2(rs))) ))/(coeff_b_c3(rs)  + 54*coeff_b_c4(rs)*exp(1/(4*my_piecewise3(evalb(mu_red(rs) < 0.075 or mu_red(rs) > 50), 1.0, mu_red2(rs)))) + my_piecewise3(evalb(mu_red(rs) < 0.075), 1.0, 0.0)) :
 
-
 tcs_b := (rs) -> tcs_b_low(rs)*Heaviside(0.075 - mu_red(rs))  + Heaviside(mu_red(rs) - 50)*tcs_b_high(rs) + tcs_b_medium(rs)*Heaviside(mu_red(rs) - 0.075)*Heaviside(50 - mu_red(rs)): 
 
 f_x_lda_prefactor := (rs) ->  -(18/Pi^2)^(1/3)*(1/rs):
