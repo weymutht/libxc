@@ -3044,3 +3044,10 @@ func_reference_type xc_ref_Goll2005_3917 = {
 };
 
 
+func_reference_type xc_ref_Goll2006_276 = {
+  "E. Goll, H.-J. Werner, H. Stoll, T. Leininger, P. {Gori-Giorgi, and A. Savin, }Chem. Phys. 329, 276 (2006)",
+  "10.1016/j.chemphys.2006.05.020",
+  "@article{Goll2006_276,\n  title = {A short-range gradient-corrected spin density functional in combination with long-range coupled-cluster methods: Application to alkali-metal rare-gas dimers},\n  author = { E. Goll and H.-J. Werner and H. Stoll and T. Leininger and P. {Gori-Giorgi} and A. Savin},\n  journal = {Chem. Phys.},\n  volume = {329},\n  pages = {276},\n  year = {2006},\n  doi = {10.1016/j.chemphys.2006.05.020},\n  url =  {https://doi.org/10.1016/j.chemphys.2006.05.020}\n}"
+};
+
+
