@@ -36,7 +36,7 @@ static const char  *gws_desc[GWS_N_PAR]   = {
   "Range-separation parameter"};
 
 static const double gws_values[GWS_N_PAR] =
-  {2.83, 0.06672455060314922, 0.031090690869654895034, 0.4};
+  {2.78, 0.06672455060314922, 0.031090690869654895034, 0.4};
 
 static void
 gws_lambda_set_ext_params(xc_func_type *p, const double *ext_params)
@@ -64,7 +64,7 @@ const xc_func_info_type xc_func_info_gga_c_gws = {
   XC_CORRELATION,
   "Short-range PBE version of Goll, Werner & Stoll ",
   XC_FAMILY_GGA,
-  {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, NULL, NULL},
+  {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, &xc_ref_Goll2006_276, NULL},
   XC_FLAGS_3D | MAPLE2C_FLAGS,
   1e-12,
   {GWS_N_PAR, gws_names, gws_desc, gws_values, gws_lambda_set_ext_params},

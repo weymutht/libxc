@@ -64,7 +64,7 @@ const xc_func_info_type xc_func_info_gga_x_gws = {
   XC_EXCHANGE,
   "Short-range PBE Exchange by Goll, Werner & Stoll",
   XC_FAMILY_GGA,
-  {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, NULL, NULL},
+  {&xc_ref_Perdew1996_3865, &xc_ref_Perdew1996_3865_err, &xc_ref_Goll2005_3917, &xc_ref_Goll2006_276, NULL},
   XC_FLAGS_3D | MAPLE2C_FLAGS,
   1e-12,
   {GWS_N_PAR, gws_names, gws_desc, gws_values, gws_lambda_set_ext_params},

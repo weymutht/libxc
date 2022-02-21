@@ -380,3 +380,4 @@ extern func_reference_type xc_ref_vonBarth1972_1629;
 extern func_reference_type xc_ref_Toulouse2004_062505;
 extern func_reference_type xc_ref_Fromager2007_074111;
 extern func_reference_type xc_ref_Goll2005_3917;
+extern func_reference_type xc_ref_Goll2006_276;
