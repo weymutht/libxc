@@ -50,9 +50,10 @@ int  npar = xc_func_info_get_n_ext_params(func.info);
 
 // Get default value of mu
 double mu = xc_func_info_get_ext_params_default_value(func.info, 3);
+//double mu = xc_func_info_get_ext_params_default_value(func.info, 0);
 printf("Default value of mu: %f\n", mu);
 
-for (int j=0;j<4;j++){
+for (int j=0;j<5;j++){
 // Modify value of mu
 switch(j)
 {
@@ -68,8 +69,11 @@ switch(j)
   case 3: mu = 1000000;
           printf("\nmu now: %lf", mu);
           break;
+  case 4: mu = 1000000000;
+          printf("\nmu now: %lf", mu);
 }
 
+printf("\n Mu after loop: %lf", mu);
 printf("\nSetting mu to %lf ", mu);
 xc_func_set_ext_params_name(&func, "_mu", mu);
 //printf("Setting omega: \n");
