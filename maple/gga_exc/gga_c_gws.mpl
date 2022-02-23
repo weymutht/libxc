@@ -42,11 +42,11 @@ gws_beta := (rs, z) -> (params_a_pbe_beta*( fsr_c_lda(rs, z)/f_pw(rs, z) )^param
 tp   := (rs, z, xt) -> tt(rs, z, xt):
 
 tolerance := 10^(-20) : 
-undefined := evalb(fsr_c_lda(rs,z) <= tolerance) :
+isUndefined := evalb(fsr_c_lda(rs,z) <= tolerance) :
 
 (* If sr lda correlation energy approaches zero, A will become undefined as we will have a division by zero. 
 In this limit, however, H becomes zero anyways due to beta approaching zero. *)
-A_den := (rs, z, t) -> exp(-fsr_c_lda(rs,z) + my_piecewise3(undefined, 1.0, ) / params_a_pbe_gamma)  - 1.0 :
+A_den := (rs, z, t) -> exp(-fsr_c_lda(rs,z) + my_piecewise3(isUndefined, 1.0, ) / params_a_pbe_gamma)  - 1.0 :
 
 (* Equation (6) *)
 A := (rs, z, t) -> gws_beta(rs, z)/(params_a_pbe_gamma*A_den(rs,z,t)):
@@ -57,6 +57,6 @@ f2 := (rs, z, t) -> gws_beta(rs,z)*f1(rs, z, t)/(params_a_pbe_gamma*(1.0 + A(rs,
 
 fH := (rs, z, t) -> params_a_pbe_gamma*log(1.0 + f2(rs, z, t)):
 
-f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs, z) + fH(rs, z, tp(rs,z,xt))*my_piecewise3(undefined, 0.0, 1.0):
+f_gws := (rs, z, xt, xs0, xs1) -> fsr_c_lda(rs, z) + fH(rs, z, tp(rs,z,xt))*my_piecewise3(isUndefined, 0.0, 1.0):
 
 f  := (rs, z, xt, xs0, xs1) -> f_gws(rs, z, xt, xs0, xs1):
