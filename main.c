@@ -17,17 +17,6 @@ printf("Libxc version: %d.%d.%d\n", vmajor, vminor, vmicro);
 int a = 1000;
 a = xc_func_init(&func, func_id, XC_UNPOLARIZED);
 
-//std::cout << " Integer is: " << a << std::endl;
-//printf(" Integer is: \n");
-//if (a== -2){
-//  printf("Integer is -2");
-//}
-//if (a == 1){
-//  printf("Integer is 1");
-//}
-//if (a==0){
-//  printf("Integer is 0");
-//}
 if(a != 0){
 fprintf(stderr, "Functional '%d' not found\n", func_id);
 return 1;

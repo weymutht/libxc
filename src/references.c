@@ -3051,3 +3051,31 @@ func_reference_type xc_ref_Goll2006_276 = {
 };
 
 
+func_reference_type xc_ref_Toulouse2004_062505 = {
+  "J. Toulouse, F. Colonna, and A. Savin, Phys. Rev. A 70, 062505 (2004)",
+  "10.1103/PhysRevA.70.062505",
+  "@article{Toulouse2004_062505,\n  title = {Long-range--short-range separation of the electron-electron interactionin density-functional theory},\n  author = {J. Toulouse and F. Colonna and A. Savin},\n  journal = {Phys. Rev. A},\n  volume = {70},\n  number = {6},\n  pages = {062505},\n  year = {2004},\n  doi = {10.1103/PhysRevA.70.062505},\n  url = {https://journals.aps.org/pra/abstract/10.1103/PhysRevA.70.062505}\n}"
+};
+
+
+func_reference_type xc_ref_Fromager2007_074111 = {
+  "E. Fromager, J. Toulouse, and H. J. A. Jensen, J. Chem. Phys. 126, 074111 (2007)",
+  "10.1063/1.2566459",
+  "@article{Fromager2007_074111,\n  title = {On the universality of the long-/short-range separation in multiconfigurational density-functional theory},\n  author = {E. Fromager and J. Toulouse and H. J. Aa. Jensen},\n  journal = {J. Chem. Phys.},\n  volume = {126},\n  number = {7},\n  pages = {074111},\n  year = {2007},\n  doi = {10.1063/1.2566459},\n  url = {https://aip.scitation.org/doi/10.1063/1.2566459}\n}"
+};
+
+
+func_reference_type xc_ref_Goll2005_3917 = {
+  "E. Goll, H.-J. Werner, and H. Stoll, Phys. Chem. Chem. Phys. 7, 3917 (2005)",
+  "10.1039/B509242F",
+  "@article{Goll2005_3917,\n  title = {A short-range gradient-corrected density functional in long-range coupled cluster calculations for rare gas dimers},\n  author = {E. Goll and H.-J. Werner and H. Stoll},\n  journal = {Phys. Chem. Chem. Phys.},\n  volume = {7},\n  number = {23},\n  pages = {3917},\n  year = {2005},\n  doi = {10.1039/B509242F},\n  url = {https://pubs.rsc.org/doi/10.1039/B509242F}\n}"
+};
+
+
+func_reference_type xc_ref_Goll2006_276 = {
+  "E. Goll, H.-J. Werner, H. Stoll, T. Leininger, P. {Gori-Giorgi, and A. Savin, }Chem. Phys. 329, 276 (2006)",
+  "10.1016/j.chemphys.2006.05.020",
+  "@article{Goll2006_276,\n  title = {A short-range gradient-corrected spin density functional in combination with long-range coupled-cluster methods: Application to alkali-metal rare-gas dimers},\n  author = { E. Goll and H.-J. Werner and H. Stoll and T. Leininger and P. {Gori-Giorgi} and A. Savin},\n  journal = {Chem. Phys.},\n  volume = {329},\n  pages = {276},\n  year = {2006},\n  doi = {10.1016/j.chemphys.2006.05.020},\n  url =  {https://doi.org/10.1016/j.chemphys.2006.05.020}\n}"
+};
+
+
