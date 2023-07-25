@@ -370,6 +370,13 @@ func_reference_type xc_ref_Burke2014_4834 = {
   "Burke2014_4834"
 };
 
+func_reference_type xc_ref_Bursch2022_134105 = {
+  "M. Bursch, H. Neugebauer, S. Ehlert, and S. Grimme.,  J. Chem. Phys. 156, 134105 (2022)",
+  "10.1063/5.0086040",
+  "@article{Bursch2022_134105,\n  author = {Bursch, Markus and Neugebauer, Hagen and Ehlert, Sebastian and Grimme, Stefan},\n  title = {Dispersion corrected r$^2${SCAN} based global hybrid functionals: r$^2${SCAN}h, r$^2${SCAN}0, and r$^2${SCAN}50},\n  journal = {J. Chem. Phys.},\n  volume = {156},\n  number = {13},\n  pages = {134105},\n  year = {2022},\n  doi = {10.1063/5.0086040},\n  URL = {https://doi.org/10.1063/5.0086040}\n}\n",
+  "Bursch2022_134105"
+};
+
 func_reference_type xc_ref_Caldeira2019_62 = {
   "M. T. Caldeira and R. Custodio.,  J. Mol. Model. 25, 62 (2019)",
   "10.1007/s00894-019-3952-4",
@@ -1364,6 +1371,13 @@ func_reference_type xc_ref_Kompaneets1956_427 = {
   "Kompaneets1956_427"
 };
 
+func_reference_type xc_ref_Kovacs2022_094110 = {
+  "P. Kovács, F. Tran, P. Blaha, and G. K. H. Madsen.,  J. Chem. Phys. 157, 094110 (2022)",
+  "10.1063/5.0098787",
+  "@article{Kovacs2022_094110,\n  author = {Kov\\'{a}cs, P\\'{e}ter and Tran, Fabien and Blaha, Peter and Madsen, Georg K. H.},\n  title = {{What is the optimal mGGA exchange functional for solids?}},\n  journal = {J. Chem. Phys.},\n  volume = {157},\n  number = {9},\n  year = {2022},\n  pages = {094110},\n  month = {09},\n  issn = {0021-9606},\n  doi = {10.1063/5.0098787},\n  url = {https://doi.org/10.1063/5.0098787}\n}\n",
+  "Kovacs2022_094110"
+};
+
 func_reference_type xc_ref_Kraisler2010_042516 = {
   "E. Kraisler, G. Makov, and I. Kelson.,  Phys. Rev. A 82, 042516 (2010)",
   "10.1103/PhysRevA.82.042516",
@@ -1588,6 +1602,13 @@ func_reference_type xc_ref_Lynch2000_4811 = {
   "Lynch2000_4811"
 };
 
+func_reference_type xc_ref_Ma2022_eabq0279 = {
+  "H. Ma, A. Narayanaswamy, P. Riley, and L. Li.,  Sci. Adv. 8, eabq0279 (2022)",
+  "10.1126/sciadv.abq0279",
+  "@article{Ma2022_eabq0279,\n  author = {Ma, He and Narayanaswamy, Arunachalam and Riley, Patrick and Li, Li},\n  title = {Evolving symbolic density functionals},\n  journal = {Sci. Adv.},\n  volume = {8},\n  number = {36},\n  pages = {eabq0279},\n  year = {2022},\n  doi = {10.1126/sciadv.abq0279},\n  URL = {https://www.science.org/doi/abs/10.1126/sciadv.abq0279}\n}\n",
+  "Ma2022_eabq0279"
+};
+
 func_reference_type xc_ref_MacDonald1979_2977 = {
   "A. H. MacDonald and S. H. Vosko.,  J. Phys. C: Solid State Phys. 12, 2977 (1979)",
   "10.1088/0022-3719/12/15/007",
@@ -1705,6 +1726,13 @@ func_reference_type xc_ref_Miehlich1989_200 = {
   "10.1016/0009-2614(89)87234-3",
   "@article{Miehlich1989_200,\n  author = {Miehlich, B. and Savin, A. and Stoll, H. and Preuss, H.},\n  title = {Results obtained with the correlation energy density functionals of becke and {Lee}, {Yang} and {Parr}},\n  journal = {Chem. Phys. Lett.},\n  volume = {157},\n  number = {3},\n  pages = {200},\n  year = {1989},\n  issn = {0009-2614},\n  doi = {10.1016/0009-2614(89)87234-3},\n  url = {http://www.sciencedirect.com/science/article/pii/0009261489872343}\n}\n",
   "Miehlich1989_200"
+};
+
+func_reference_type xc_ref_Mitrofanov2021_161103 = {
+  "A. Mitrofanov, N. Andreadi, V. Korolev, and S. Kalmykov.,  J. Chem. Phys. 155, 161103 (2021)",
+  "10.1063/5.0067631",
+  "@article{Mitrofanov2021_161103,\n  author = {Mitrofanov, Artem and Andreadi, Nikolai and Korolev, Vadim and Kalmykov, Stepan},\n  title = {A search for a {DFT} functional for actinide compounds},\n  journal = {J. Chem. Phys.},\n  volume = {155},\n  number = {16},\n  pages = {161103},\n  year = {2021},\n  doi = {10.1063/5.0067631},\n  url = {https://doi.org/10.1063/5.0067631}\n}\n",
+  "Mitrofanov2021_161103"
 };
 
 func_reference_type xc_ref_Mortensen2005_216401 = {
@@ -2256,7 +2284,7 @@ func_reference_type xc_ref_Schmider1998_9624 = {
 func_reference_type xc_ref_Schmidt2014_18A510 = {
   "T. Schmidt, E. Kraisler, A. Makmal, L. Kronik, and S. Kümmel.,  J. Chem. Phys. 140, 18A510 (2014)",
   "10.1063/1.4865942",
-  "@article{Schmidt2014_18A510,\n  author = {Schmidt, Tobias and Kraisler, Eli and Makmal, Adi and Kronik, Leeor and K\\\"{u}mmel, Stephan},\n  title = {A self-interaction-free local hybrid functional: Accurate binding energies vis-\\'{a}-vis accurate ionization potentials from {Kohn}--{Sham} eigenvalues},\n  journal = {J. Chem. Phys.},\n  volume = {140},\n  number = {18},\n  pages = {18A510},\n  year = {2014},\n  doi = {10.1063/1.4865942},\n  URL = {https://doi.org/10.1063/1.4865942}\n}\n",
+  "@article{Schmidt2014_18A510,\n  author = {Schmidt, Tobias and Kraisler, Eli and Makmal, Adi and Kronik, Leeor and K\\\"{u}mmel, Stephan},\n  title = {A self-interaction-free local hybrid functional: Accurate binding energies vis-\\'{a}-vis accurate ionization potentials from {Kohn}--{Sham} eigenvalues},\n  journal = {J. Chem. Phys.},\n  volume = {140},\n  number = {18},\n  pages = {18A510},\n  year = {2014},\n  doi = {10.1063/1.4865942},\n  url = {https://doi.org/10.1063/1.4865942}\n}\n",
   "Schmidt2014_18A510"
 };
 

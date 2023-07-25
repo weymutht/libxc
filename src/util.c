@@ -325,21 +325,19 @@ internal_counters_set_gga(int nspin, xc_dimensions *dim)
     dim->v4rho3sigma = dim->v4rho2sigma2 = dim->v4rhosigma3 = dim->v4sigma4 = 1;
 
   }else{
-    dim->sigma = 3;
+    dim->sigma = dim->vsigma = 3;
 
-    dim->vsigma = 3;
+    dim->v2rhosigma        = 2*3;
+    dim->v2sigma2          = 6;
 
-    dim->v2rhosigma = 2*3;
-    dim->v2sigma2 = 6;
+    dim->v3rho2sigma       = 3*3;
+    dim->v3rhosigma2       = 2*6;
+    dim->v3sigma3          = 10;
 
-    dim->v3rho2sigma = 3*3;
-    dim->v3rhosigma2 = 2*6;
-    dim->v3sigma3    = 10;
-
-    dim->v4rho3sigma  = 4*3;
-    dim->v4rho2sigma2 = 3*6;
-    dim->v4rhosigma3  = 2*10;
-    dim->v4sigma4     = 15;
+    dim->v4rho3sigma       = 4*3;
+    dim->v4rho2sigma2      = 3*6;
+    dim->v4rhosigma3       = 2*10;
+    dim->v4sigma4          = 15;
   }
 }
 
@@ -347,9 +345,9 @@ void
 internal_counters_set_mgga(int nspin, xc_dimensions *dim)
 {
   internal_counters_set_gga(nspin, dim);
-
   dim->lapl = dim->vlapl = nspin;
   dim->tau  = dim->vtau  = nspin;
+
   if(nspin == XC_UNPOLARIZED){
     dim->v2lapl2 = dim->v2tau2 = 1;
     dim->v2rholapl = dim->v2rhotau = dim->v2lapltau = 1;
@@ -370,34 +368,37 @@ internal_counters_set_mgga(int nspin, xc_dimensions *dim)
     dim->v4sigmalapltau2 = dim->v4sigmatau3 = dim->v4lapl4 = dim->v4lapl3tau = 1;
     dim->v4lapl2tau2 = dim->v4lapltau3 = dim->v4tau4 =1;
   }else{
+    dim->vlapl             = 2;
+    dim->vtau              = 2;
+
     /* in total: 30 */
-    dim->v2rholapl   = 2*2;
-    dim->v2rhotau    = 2*2;
-    dim->v2sigmalapl = 3*2;
-    dim->v2sigmatau  = 3*2;
-    dim->v2lapl2     = 3;
-    dim->v2lapltau   = 2*2;
-    dim->v2tau2      = 3;
+    dim->v2rholapl         = 2*2;
+    dim->v2rhotau          = 2*2;
+    dim->v2sigmalapl       = 3*2;
+    dim->v2sigmatau        = 3*2;
+    dim->v2lapl2           = 3;
+    dim->v2lapltau         = 2*2;
+    dim->v2tau2            = 3;
 
     /* in total: 130 */
-    dim->v3rho2lapl     = 3*2;
-    dim->v3rho2tau      = 3*2;
-    dim->v3rhosigmalapl = 2*3*2;
-    dim->v3rhosigmatau  = 2*3*2;
-    dim->v3rholapl2     = 2*3;
-    dim->v3rholapltau   = 2*2*2;
-    dim->v3rhotau2      = 2*3;
-    dim->v3sigma2lapl   = 6*2;
-    dim->v3sigma2tau    = 6*2;
-    dim->v3sigmalapl2   = 3*3;
-    dim->v3sigmalapltau = 3*2*2;
-    dim->v3sigmatau2    = 3*3;
-    dim->v3lapl3        = 4;
-    dim->v3lapl2tau     = 3*2;
-    dim->v3lapltau2     = 2*3;
-    dim->v3tau3         = 4;
+    dim->v3rho2lapl        = 3*2;
+    dim->v3rho2tau         = 3*2;
+    dim->v3rhosigmalapl    = 2*3*2;
+    dim->v3rhosigmatau     = 2*3*2;
+    dim->v3rholapl2        = 2*3;
+    dim->v3rholapltau      = 2*2*2;
+    dim->v3rhotau2         = 2*3;
+    dim->v3sigma2lapl      = 6*2;
+    dim->v3sigma2tau       = 6*2;
+    dim->v3sigmalapl2      = 3*3;
+    dim->v3sigmalapltau    = 3*2*2;
+    dim->v3sigmatau2       = 3*3;
+    dim->v3lapl3           = 4;
+    dim->v3lapl2tau        = 3*2;
+    dim->v3lapltau2        = 2*3;
+    dim->v3tau3            = 4;
 
-    /* in total: 477 */
+    /* in total: 425 */
     dim->v4rho3lapl        = 4*2;
     dim->v4rho3tau         = 4*2;
     dim->v4rho2sigmalapl   = 3*3*2;
@@ -405,17 +406,17 @@ internal_counters_set_mgga(int nspin, xc_dimensions *dim)
     dim->v4rho2lapl2       = 3*3;
     dim->v4rho2lapltau     = 3*2*2;
     dim->v4rho2tau2        = 3*3;
-    dim->v4rhosigma2lapl   = 3*6*2;
-    dim->v4rhosigma2tau    = 3*6*2;
+    dim->v4rhosigma2lapl   = 2*6*2;
+    dim->v4rhosigma2tau    = 2*6*2;
     dim->v4rhosigmalapl2   = 2*3*3;
     dim->v4rhosigmalapltau = 2*3*2*2;
-    dim->v4rhosigmatau2    = 2*6*3;
+    dim->v4rhosigmatau2    = 2*3*3;
     dim->v4rholapl3        = 2*4;
     dim->v4rholapl2tau     = 2*3*2;
     dim->v4rholapltau2     = 2*2*3;
     dim->v4rhotau3         = 2*4;
     dim->v4sigma3lapl      = 10*2;
-    dim->v4sigma3tau       = 10*3;
+    dim->v4sigma3tau       = 10*2;
     dim->v4sigma2lapl2     = 6*3;
     dim->v4sigma2lapltau   = 6*2*2;
     dim->v4sigma2tau2      = 6*3;

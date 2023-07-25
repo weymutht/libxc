@@ -52,7 +52,7 @@ clang++:
       - make install
 
 nvcc_nocuda:
-    image: nvidia/cuda:11.2.0-devel
+    image: nvidia/cuda:12.2.0-devel-ubuntu20.04
     stage: build
     artifacts:
         paths:
@@ -73,7 +73,7 @@ nvcc_nocuda:
 
 #can't run since the gitlab machines don't have gpus
 cuda_norun:
-    image: nvidia/cuda:11.2.0-devel
+    image: nvidia/cuda:12.2.0-devel-ubuntu20.04
     stage: build
     script:
       - apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
@@ -91,7 +91,7 @@ cuda_norun:
 
 #can't run since the gitlab machines don't have gpus
 cuda_cmake_norun:
-    image: nvidia/cuda:11.2.0-devel
+    image: nvidia/cuda:12.2.0-devel-ubuntu20.04
     stage: build
     script:
       - apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub

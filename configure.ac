@@ -76,7 +76,11 @@ AC_SEARCH_LIBS([erf], [m])
 # libxc-5.2.2  11:2:2
 # libxc-5.2.3  11:3:2
 # libxc-6.0.0  12:0:0
-# libxc-7.0.0  13:0:0
+# libxc-6.1.0  13:0:1
+# libxc-6.2.0  14:0:2
+# libxc-6.2.1  14:1:2
+# libxc-6.2.2  14:2:2
+# libxc-7.0.0  15:0:0
 # 
 # Note that libtool versioning was not used prior to libxc-2.0.
 # Because of this, we will start counting at 1.
@@ -93,7 +97,7 @@ AC_SEARCH_LIBS([erf], [m])
 # interfaces have been removed. removal has precedence over adding,
 # so set to 0 if both happened.
 
-XC_CURRENT=13
+XC_CURRENT=15
 XC_REVISION=0
 XC_AGE=0
 
